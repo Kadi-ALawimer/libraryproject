@@ -5,13 +5,13 @@
   <title>Show One Book</title>
   <meta charset="UTF-8">
 
-  <!-- لو عندك CSS -->
+  
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
 
-  <!-- رجوع باستخدام Django URL -->
+  <!-- Django URL -->
   <a href="{% url 'books.list_books' %}">Go Back</a>
 
   <h1>Details of Book 1</h1>
@@ -23,7 +23,7 @@
     provides introduction to web programming.
   </p>
 
-  <!-- صورة من static -->
+  <!--static -->
   <img src="{% static 'images/book1.jpg' %}" width="200" height="200" alt="Book 1">
 
 </body>
