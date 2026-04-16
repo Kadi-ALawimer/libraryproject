@@ -1,25 +1,25 @@
-{% extends "layouts/base.html" %}
+<h2>Books List</h2>
 
-{% block content %}
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Edition</th>
+    </tr>
 
-<h1>Search Results</h1>
-
-{% if books %}
-    <ul>
-        {% for book in books %}
-            <li>
-                {{ book.title }} - {{ book.author }}
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No results found</p>
-{% endif %}
-
-{% for obj in books %}
-ID: {{obj.id}}, Title: {{obj.title}}
-<hr>
-{% endfor %}
-
-{% endblock %}
-
+    {% for obj in books %}
+    <tr>
+        <td>{{ obj.id }}</td>
+        <td>{{ obj.title }}</td>
+        <td>{{ obj.author }}</td>
+        <td>{{ obj.price }}</td>
+        <td>{{ obj.edition }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No books found</td>
+    </tr>
+    {% endfor %}
+</table>
