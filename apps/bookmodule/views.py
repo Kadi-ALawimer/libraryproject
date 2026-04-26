@@ -3,6 +3,8 @@ from django.shortcuts import render
 from .models import Book
 from django.db.models import Q, Count, Sum, Avg, Max, Min
 from .models import Book, Student
+from django.db.models import Count, Sum, Avg, Min, Max, Q, F, FloatField, ExpressionWrapper
+from .models import Book, Student, Address, Publisher, Author, BookLab9
 
 def index(request): 
     return HttpResponse("Hello, world!") 
@@ -164,3 +166,60 @@ def task5(request): #lab 8
 def task7(request):
     data = Student.objects.values('address__city').annotate(count=Count('id'))
     return render(request, 'bookmodule/task7.html', {'data': data})
+
+#lab 9
+def lab9_task1(request):
+
+    total = BookLab9.objects.aggregate(total=Sum('quantity'))['total'] or 1
+
+    books = BookLab9.objects.annotate(
+
+        percentage=ExpressionWrapper(
+
+            F('quantity') * 100.0 / total,
+
+            output_field=FloatField()
+
+        )
+
+    )
+    return render(request, 'bookmodule/task1.html', {'books': books})
+
+
+def lab9_task2(request):
+    data = Publisher.objects.annotate(total_stock=Sum('booklab9__quantity'))
+    return render(request, 'bookmodule/task2.html', {'data': data})
+
+
+def lab9_task3(request):
+    data = Publisher.objects.annotate(oldest_book=Min('booklab9__pubdate'))
+    return render(request, 'bookmodule/task3.html', {'data': data})
+
+
+def lab9_task4(request):
+    data = Publisher.objects.annotate(
+        avg_price=Avg('booklab9__price'),
+        min_price=Min('booklab9__price'),
+        max_price=Max('booklab9__price')
+    )
+    return render(request, 'bookmodule/task4.html', {'data': data})
+
+
+def lab9_task5(request):
+    data = Publisher.objects.annotate(
+        high_rated_books=Count('booklab9', filter=Q(booklab9__rating__gte=4)),
+        total_quantity=Sum('booklab9__quantity')
+    )
+    return render(request, 'bookmodule/task5.html', {'data': data})
+
+
+def lab9_task6(request):
+    data = Publisher.objects.annotate(
+        books_count=Count(
+            'booklab9',
+            filter=Q(booklab9__price__gt=50) &
+                   Q(booklab9__quantity__lt=5) &
+                   Q(booklab9__quantity__gte=1)
+        )
+    )
+    return render(request, 'bookmodule/task6.html', {'data': data})

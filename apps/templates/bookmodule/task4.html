@@ -1,0 +1,26 @@
+<h2>Task 4</h2>
+<h3>Average, Minimum, and Maximum Book Price for Each Publisher</h3>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>Publisher Name</th>
+        <th>Location</th>
+        <th>Average Price</th>
+        <th>Minimum Price</th>
+        <th>Maximum Price</th>
+    </tr>
+
+    {% for obj in data %}
+    <tr>
+        <td>{{ obj.name }}</td>
+        <td>{{ obj.location }}</td>
+        <td>{{ obj.avg_price }}</td>
+        <td>{{ obj.min_price }}</td>
+        <td>{{ obj.max_price }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No data found</td>
+    </tr>
+    {% endfor %}
+</table>
