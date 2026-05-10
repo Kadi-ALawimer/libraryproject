@@ -46,3 +46,5 @@ class BookLab9(models.Model):
 
     publisher = models.ForeignKey(Publisher, null=True, on_delete=models.SET_NULL)
     authors = models.ManyToManyField(Author)
+
+    pubdate = models.DateTimeField(auto_now_add=True)

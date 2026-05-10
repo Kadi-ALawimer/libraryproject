@@ -103,3 +103,14 @@ insert into bookmodule_book (title, author, price, edition) values ('Maecenas le
 insert into bookmodule_book (title, author, price, edition) values ('Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.', 'Dill Biaggioni', 26, 47);
 
 select * from bookmodule_book
+
+insert into bookmodule_publisher (id, name, location) VALUES
+(1, 'OReilly', 'USA'),
+(2, 'Pearson', 'UK'),
+(3, 'Springer', 'Germany');
+
+INSERT INTO bookmodule_author (id, name, DOB) VALUES
+(1, 'Ali', '1990-01-01'),
+(2, 'Sara', '1995-05-05'),
+(3, 'Omar', '1988-03-10'),
+(4, 'Lina', '1992-07-15');

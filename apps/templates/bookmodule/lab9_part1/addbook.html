@@ -1,0 +1,12 @@
+<h1>Add Book</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    Title: <input type="text" name="title"><br>
+    Price: <input type="text" name="price"><br>
+    Quantity: <input type="number" name="quantity"><br>
+    Rating: <input type="number" name="rating"><br>
+
+    <button type="submit">Save</button>
+</form>
