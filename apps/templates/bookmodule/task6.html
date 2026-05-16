@@ -1,0 +1,23 @@
+<h2>Task 6</h2>
+<h3>Count of Books for Each Publisher</h3>
+<p>Filter: price greater than 50, quantity less than 5, and quantity greater than or equal to 1</p>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>Publisher Name</th>
+        <th>Location</th>
+        <th>Books Count</th>
+    </tr>
+
+    {% for obj in data %}
+    <tr>
+        <td>{{ obj.name }}</td>
+        <td>{{ obj.location }}</td>
+        <td>{{ obj.books_count }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">No data found</td>
+    </tr>
+    {% endfor %}
+</table>

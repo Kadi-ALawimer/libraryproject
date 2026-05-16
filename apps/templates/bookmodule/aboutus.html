@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>About Us</title>
+  <meta charset="UTF-8">
+
+  <!-- CSS من static -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+  <div>
+    <!-- روابط Django -->
+    <a href="{% url 'books.index' %}">Home</a>
+    <a href="{% url 'books.list_books' %}">List Books</a>
+    <a href="{% url 'books.aboutus' %}">About</a>
+  </div>
+
+  <h1>About Us</h1>
+
+  <p>
+    This is a paragraph text This is a paragraph text
+    This is a paragraph text.
+  </p>
+
+  <p>
+    To write to
+    <a href="mailto:email@domain.com">our store</a>
+    click the link.
+  </p>
+
+</body>
+</html>
