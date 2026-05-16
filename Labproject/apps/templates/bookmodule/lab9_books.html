@@ -1,0 +1,15 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<h2>Books Availability</h2>
+
+{% for book in books %}
+    <p>
+        {{ book.title }} -
+        Quantity: {{ book.quantity }} -
+        Percentage: {{ book.percentage }}%
+    </p>
+{% endfor %}
+
+{% endblock content %} 

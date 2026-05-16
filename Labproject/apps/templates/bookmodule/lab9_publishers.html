@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<h2>Publishers Results</h2>
+
+{% for pub in publishers %}
+
+    <p>Name: {{ pub.name }}</p>
+    <p>Location: {{ pub.location }}</p>
+
+    <p>Total stock: {{ pub.total_stock }}</p>
+    <p>Oldest book date: {{ pub.oldest_book }}</p>
+    <p>Average price: {{ pub.average_price }}</p>
+    <p>Minimum price: {{ pub.min_price }}</p>
+    <p>Maximum price: {{ pub.max_price }}</p>
+    <p>Highly rated books: {{ pub.highly_rated_books }}</p>
+    <p>Total quantity: {{ pub.total_quantity }}</p>
+    <p>Book count: {{ pub.book_count }}</p>
+
+    <hr>
+
+{% endfor %}
+
+{% endblock content %}

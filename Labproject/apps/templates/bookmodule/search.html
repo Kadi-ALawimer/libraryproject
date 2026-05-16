@@ -1,0 +1,26 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+<form method="post">
+
+{% csrf_token %}
+
+<label> Keyword: </label>
+<input type="text" name="keyword">
+<br>
+<input type="checkbox" name="option1">
+<label> Title</label>
+
+<input type="checkbox" name="option2">
+<label Author ></label>
+
+<br>
+
+<button type="submit"> search </button>
+
+
+<br>
+<input type="radio" name="background" id="whiteinput" value="white">
+<label for="whiteinput">white</label>
+
+</form>
+{% endblock content %}

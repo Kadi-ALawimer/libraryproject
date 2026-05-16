@@ -1,0 +1,24 @@
+<a href="{% url 'addbook_part1' %}">Add New Book</a>
+
+<table border="1">
+<tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Price</th>
+    <th>Edition</th>
+    <th>Actions</th>
+</tr>
+
+{% for book in books %}
+<tr>
+    <td>{{ book.title }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.price }}</td>
+    <td>{{ book.edition }}</td>
+    <td>
+        <a href="{% url 'editbook_part1' book.id %}">Edit</a>
+        <a href="{% url 'deletebook_part1' book.id %}">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+</table>

@@ -1,0 +1,9 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+{% for city in cities %}
+    <p>{{ city.city }}: {{ city.student_count }}</p>
+{% endfor %}
+
+{% endblock content %}

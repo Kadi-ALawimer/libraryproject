@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+{% load static %}
+
+<head>
+    {% if user.is_authenticated %}
+    <p>Welcome {{ user.username }}</p>
+    <a href="{% url 'logout' %}">Logout</a>
+{% endif %}
+
+<title>{% block title %}{% endblock title %}</title>
+
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+</head>
+
+<body>
+
+{% include "includes/header.html" %}
+
+{% block content %}
+{% endblock content %}
+
+{% include "includes/footer.html" %}
+
+</body>
+
+</html>
